@@ -144,7 +144,7 @@ With a reference later in the document defining the URL location:
   "
 }
 
-pub fn test() {
+pub fn run_test() {
   let markdown = sample()
 
   io.println(

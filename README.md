@@ -1,6 +1,6 @@
 # kirala_markdown
 
-markdown parser and html renderer written in Gleam language ver 0.33.
+markdown parser and html renderer written in Gleam language ver 1.0.0.
 This is a simple port from [kirala_bbmarkdown](https://github.com/Yasuo-Higano/kirala_bbmarkdown), which does pattern matching by string whereas bbmarkdown does binary pattern matching.
 
 bbmarkdown is about 25% faster than this, but this one also works with javascript target.

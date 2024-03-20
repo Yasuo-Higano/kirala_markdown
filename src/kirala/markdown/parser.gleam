@@ -183,6 +183,7 @@ fn decode_codeblock(src: String) -> TokenRes {
   let #(syntax, filename) = case string.split(inf, ":") {
     [syntax] -> #(syntax, "")
     [syntax, filename] -> #(syntax, filename)
+    unhandable -> #(inf, "")
   }
   let ParseRes(code, rest1) = decode_codeblock_(rest0, "")
   TokenRes(CodeBlock(syntax, filename, code), rest1)
@@ -500,7 +501,7 @@ fn decode_line2(indent: Int, src: String) -> TokenRes {
 }
 
 fn list_remove_last(l: List(a)) -> List(a) {
-  let [_, ..tail] = list.reverse(l)
+  let assert [_, ..tail] = list.reverse(l)
   tail
   |> list.reverse
 }
@@ -550,7 +551,7 @@ fn decode_table(src: String) -> TokenRes {
 }
 
 fn char_int(c: String) -> Int {
-  let [cp] = string.to_utf_codepoints(c)
+  let assert [cp] = string.to_utf_codepoints(c)
   string.utf_codepoint_to_int(cp)
 }
 
